@@ -20,7 +20,7 @@ void draw()
 
 
 }
-
+/////////// INTERFACES
 
 interface InfoDroplet {
 
@@ -47,12 +47,41 @@ interface InfoDroplet {
   int width = 200;
   int height = 75;
   String tags[];
-  int ttl; // time to live in frames
-  
-  
+  int ttl; // time to live in frames  
 }
 
-class NewsDroplet implements InfoDroplet
+interface Nozzle {
+  void iterateNozzle();
+  void createDroplet();
+  void onNozzle();
+  void offNozzle();
+  void emptyNozzle(); // fires when array = 0
+  int xPos;
+  int yPos;
+  int zPos;
+  String flowModel = "default"; // constant, random, density more=faster, off, spew left,
+  // could include initial velocity values
+  float flowRate;
+  float flowRate_Random;
+  XMLElement[] feedItemArray;
+  String backgroundImage; //path
+}
+
+interface Physics   // via http://processingjs.org/reference/articles/PomaxGuide
+    {  
+      // collision modifies the two force vectors in place. Nothing is returned.  
+      void collide_objects(float[] forcevector1, float[] forcevector2, float collisionangle);  
+      
+      // get force vector returns a force vector  
+      float[] get_force_vector(float[] startpoint, float[] distancevector, float acceleration);  
+      
+      // trajectory calculation returns a curve, represented as a lest of 2D coordinates  
+      float[][] get_trajectory(float[] startpoint, float objectmass, float[] initialvector, float[] gravityvector, float gravitystrength);
+    }  
+
+//////////// IMPLEMENTATIONS!
+
+class NewsDroplet extends InfoDroplet
 {
 
   // startup vars
@@ -72,3 +101,20 @@ class NewsDroplet implements InfoDroplet
   void deleteDroplet() {
     // remove droplet from flowsketch's array
   }
+}
+
+class InfoNozzle extends Nozzle
+{
+  InfoNozzle() {
+    //constructor
+  }
+}
+
+
+///////////// HANDLERS
+void mousePressed() {
+
+}
+void mouseReleased() {
+
+}
