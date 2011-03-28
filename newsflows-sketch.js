@@ -23,10 +23,10 @@ XMLElement[] feedItemArray;
 InfoDroplet[] activeDroplets; //array holds all living droplets by NID
 String sourcesParser; // path to parser URL TODO DTD / DOM
   
-void setup()
-{
-  size(800,200);
+void setup() {
+  size(800,600);
   //size(width,height);
+    background(#CCCCCC);
   frameRate(framerate);
   colorMode(RGB,255,255,255,100);
   stroke(#000000); // set the default shape outline colour
@@ -36,9 +36,8 @@ void setup()
   smooth(); 
 }
 
-void draw()
-{
-  background(0);
+void draw() {
+  background(#CCCCCC);
   frame++; // note that we're one frame further than last time  
   nfs.run();
   nfs.addNewsFlowObject();
@@ -49,8 +48,8 @@ void draw()
 
 }
 
-class NewsDroplet extends InfoDroplet
-{
+class NewsDroplet {
+//class NewsDroplet extends InfoDroplet {
   // startup vars
   Vector3D loc;  
   Vector3D vel;  
@@ -65,7 +64,7 @@ class NewsDroplet extends InfoDroplet
     r = r_;  
     ttl = 100.0;  
   }
-    // Another constructor (the one we are using here)  
+    // Another constructor (the one we are using here)  takes only location 
   NewsDroplet(Vector3D l) {  
     acc = new Vector3D(0,0.05,0);  
     vel = new Vector3D(random(-1,1),random(-2,0),0);  
@@ -104,21 +103,20 @@ class NewsDroplet extends InfoDroplet
       return false;  
     }  
   }  
-  
+    /*
   void iterateDroplet() {
     step++;
     ttl--;
     if (this.ttl < 1) {
       this.expireDroplet();
   }
-  
+
   void expireDroplet() {
     // remove droplet from flowsketch's array
   }
-}
 
 
-void loadSources() { 
+  void loadSources() { 
 // gets feed items from sourcesUrls;
 // for each result
 // if feed item does not exist yet:
@@ -126,13 +124,13 @@ void loadSources() {
 // if feed item does exist:
   // update values of same NID on feedItemArray;
 
+  }*/
 }
 /////////// INTERFACES
 
 interface InfoDroplet {
-
-  void iterateDroplet();
-  void changeWeight(int weight); // TODO for incoming vote results
+  //void iterateDroplet();
+  //void changeWeight(int weight); // TODO for incoming vote results
   boolean dead();
   void render();
   void update();
@@ -149,18 +147,18 @@ interface InfoDroplet {
   String body = "body";
   String author;
   String sourceURL;
-  Object imagefield;
-  int voteUp; // value of upvote
-  int voteDown;
+  //Object imagefield;
+  //int voteUp; // value of upvote
+  //int voteDown;
   Vector3D loc;  
   Vector3D vel;  
   Vector3D acc; 
   float weight;
-  int width = 200;
-  int height = 75;
-  String tags[];
-}*/
-
+  float width = 200;
+  float height = 75;
+  //String[] tags;
+}
+/*
 interface Nozzle {
   void iterateNozzle();
   void createDroplet();
@@ -177,7 +175,7 @@ interface Nozzle {
   float flowRate_Random;
   XMLElement[] feedItemArray;
   String backgroundImage; //path
-}
+}*/
 
 class NewsFlowSystem { 
 // based on http://processingjs.org/learning/topic/simpleparticlesystem
@@ -192,7 +190,7 @@ class NewsFlowSystem {
       }
     }
   
-  void run() (
+  void run() {
     // cycle thru array list backwards as we delete um
     for (int i = newsFlowObjects.size()-1; i >= 0; i--) {
       NewsDroplet n = (NewsDroplet) newsFlowObjects.get(i);
@@ -220,13 +218,10 @@ class NewsFlowSystem {
     }
   }
 }
-  
-   
-  }
 
 
 ////////
-
+/*
 interface Physics   // via http://processingjs.org/reference/articles/PomaxGuide
     {  
       // collision modifies the two force vectors in place. Nothing is returned.  
@@ -236,9 +231,9 @@ interface Physics   // via http://processingjs.org/reference/articles/PomaxGuide
       // trajectory calculation returns a curve, represented as a lest of 2D coordinates  
       float[][] get_trajectory(float[] startpoint, float objectmass, float[] initialvector, float[] gravityvector, float gravitystrength);
     }  
-
+*/
 //////////// IMPLEMENTATIONS!
-
+/*
 class InfoNozzle extends Nozzle
 {
   InfoNozzle() {
@@ -258,7 +253,7 @@ void mousePressed() {
 void mouseReleased() {
 
 }
-
+*/
 ////////////
 // Simple Vector3D Class   
 // via http://processingjs.org/learning/topic/simpleparticlesystem  
