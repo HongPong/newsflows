@@ -43,7 +43,8 @@ Standard GPL 3.0 license - free as in software!!
 
 ------------
 CHANGELOG
-v.0.0.0 - Initial commit
+v0.0.1 - Several particle emitters and their styles ok
+v0.0.0 - Initial commit
 
 ------------
 CREDIT
