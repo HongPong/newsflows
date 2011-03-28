@@ -10,6 +10,13 @@ NewsFlows is designed to use the processing.js platform based on the Processing 
 It doesn't really need to be on Drupal, if there is some other way to handle the feeds in a cleaned up way.
 
 ------------
+REQUIREMENTS
+
+- Processing.JS setup correctly
+- Some RSS/XML/ATOM feeds to parse in a given format
+- Visitors must have HTML5 browsers compliant with CANVAS tag. IE need not apply.
+
+------------
 USAGE
 
 Each NewsFlow is based on a Processing sketch given certain startup parameters.
