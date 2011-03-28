@@ -39,4 +39,5 @@ v.0.0.0 - Initial commit
 
 ------------
 CREDIT
-Concept and implementation by Dan Feidt (hongpong
+Concept and implementation by Dan Feidt (hongpong) 
+- CONTACT hongpong@hongpong.com - Feidt Design LLC
