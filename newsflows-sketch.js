@@ -5,6 +5,7 @@
 
 // Execution flows:
 // flow sketch is setup()
+// draw() keeps looping
 // the NewsFlowSystem is the main particle system which runs over & over
 
 // A lot of this stuff is not implemented - right now it just emits particles
