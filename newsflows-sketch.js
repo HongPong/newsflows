@@ -29,7 +29,7 @@ void setup() {
     background(#CCCCCC);
   frameRate(framerate);
   colorMode(RGB,255,255,255,100);
-  stroke(#000000); // set the default shape outline colour
+  stroke(#CCFFBB); // set the default shape outline colour
   fill(#FFFFCC); // set the default shape fill colour 
   //loadSources();
   nfs = new NewsFlowSystem(1,new Vector3D(width/2,height/2,0));
@@ -39,8 +39,9 @@ void setup() {
 void draw() {
   background(#CCCCCC);
   frame++; // note that we're one frame further than last time  
+  println(frame);  // Printing a String
   nfs.run();
-  nfs.addNewsFlowObject();
+  //nfs.addNewsFlowObject();
   
   // for each activeDroplets[] as x
   // activeDroplets[x].iterateDroplet();
@@ -187,16 +188,20 @@ class NewsFlowSystem {
     origin = v.copy();
     for (int i = 0; i < num; i++) {
       newsFlowObjects.add(new NewsDroplet(origin));
+       println(i + "objects NewsFlowSystem");  // Printing a String
       }
     }
   
   void run() {
     // cycle thru array list backwards as we delete um
+    println("run NewsFlowSystem");  // Printing a String
     for (int i = newsFlowObjects.size()-1; i >= 0; i--) {
+     println("i =" + i);  // Printing a String
       NewsDroplet n = (NewsDroplet) newsFlowObjects.get(i);
       n.run();
       if (n.dead()) {
         newsFlowObjects.remove(n);
+        println("removing " + n + "news item");  // Printing a String
       }
     }
   }
