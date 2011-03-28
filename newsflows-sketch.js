@@ -25,12 +25,13 @@ String sourcesParser; // path to parser URL TODO DTD / DOM
   
 void setup()
 {
-  size(width,height);
+  size(800,200);
+  //size(width,height);
   frameRate(framerate);
   colorMode(RGB,255,255,255,100);
   stroke(#000000); // set the default shape outline colour
   fill(#FFFFCC); // set the default shape fill colour 
-  loadSources();
+  //loadSources();
   nfs = new NewsFlowSystem(1,new Vector3D(width/2,height/2,0));
   smooth(); 
 }
@@ -83,6 +84,7 @@ class NewsDroplet extends InfoDroplet
     vel.add(acc);  
     loc.add(vel);  
     ttl -= 1.0;  
+    step++;
   }  
   
   // Method to display  
@@ -107,7 +109,7 @@ class NewsDroplet extends InfoDroplet
     step++;
     ttl--;
     if (this.ttl < 1) {
-      this.deleteDroplet();
+      this.expireDroplet();
   }
   
   void expireDroplet() {
@@ -141,7 +143,7 @@ interface InfoDroplet {
   String title;
   int nid; // unique node id
   int step; // droplet frames in ttl
-  int ttl; // time to live in frames  
+  float ttl; // time to live in frames  
   String style = "default";
   String objectModel = "default"; // for collision settings
   String body = "body";
@@ -150,9 +152,9 @@ interface InfoDroplet {
   Object imagefield;
   int voteUp; // value of upvote
   int voteDown;
-  float velocity_X;
-  float velocity_Y;
-  float velocity_Z;
+  Vector3D loc;  
+  Vector3D vel;  
+  Vector3D acc; 
   float weight;
   int width = 200;
   int height = 75;
