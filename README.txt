@@ -1,5 +1,5 @@
 NewsFlows
-v0.0.0
+v0.0.1
 ____________
 DESCRIPTION
 
@@ -15,6 +15,7 @@ REQUIREMENTS
 - Processing.JS setup correctly
 - Some RSS/XML/ATOM feeds to parse in a given format
 - Visitors must have HTML5 browsers compliant with CANVAS tag. IE need not apply.
+- at this time files will be around /sites/default/files/
 
 ------------
 USAGE
